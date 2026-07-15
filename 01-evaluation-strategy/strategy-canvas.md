@@ -10,7 +10,7 @@
 
 ## 2. Measurements, The Execution
 
-**User promise.** For VP-level Enterprise Strategists, Ascend IQ promises to deliver verified, citation-backed competitive intelligence in under 5 seconds so that they hit their Q4 roadmap milestones without manual data digging.
+**User promise.** For VP-level Enterprise Strategists, Ascend IQ promises to deliver verified, citation-backed competitive intelligence in under 5 seconds sso they can make strategic decisions confidently without manual research.
 
 **Top 3 trust metrics:**
 - **Latency**, Response speed (P95 / P99). Slow kills engagement.
@@ -27,4 +27,4 @@
 We prioritize Hallucination Rate over Latency because Ascend IQ serves VPs making $1M+ strategic decisions; a single fabricated competitor stat ends a $50k contract, whereas a 3-second wait is the cost of doing business at Enterprise-grade integrity.
 
 ### Trade-off 2 · Latency ↔ UX Trust
-We prioritize UX Trust over Latency because transparent citations and clear uncertainty build long-term customer confidence, even if responses take slightly longer.
+We prioritize UX Trust over Latency because VP-level strategists making high-stakes business decisions need transparent citations and clear uncertainty to trust the AI's recommendations, even if responses take slightly longer.
