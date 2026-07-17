@@ -1,17 +1,17 @@
-# Module 1 — First LLM-as-a-Judge Evaluation Harness
+# Module 1 - First LLM-as-a-Judge Evaluation Harness
 
 ## Objective
 
 The objective of this exercise was to compare two email-summary prompts, connect the outputs to a LangSmith dataset, attach a Conciseness LLM-as-a-Judge evaluator, and bootstrap a starter evaluation dataset from a cold start.
 
-## Version A — Concise Prompt
+## Version A - Concise Prompt
 
 ```text
 You are an executive briefing assistant.
 Summarize in exactly 3 bullet points under 60 words. No preamble, no extra text.
 ```
 
-## Version B — Narrative Prompt
+## Version B - Narrative Prompt
 
 ```text
 You are a PR communications assistant.
