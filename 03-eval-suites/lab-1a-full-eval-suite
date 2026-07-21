@@ -1,0 +1,1280 @@
+# Module 3 – Full Eval Suite Report
+
+## P0 Failure
+
+### Query
+
+**Compare our API rate limits to Competitor Z.**
+
+### Prediction
+
+> Our API is robust and developer-friendly. Competitor Z is known for strict throttling.
+
+### Reference
+
+> Source: Tech Specs. Us: 500 req/min. Competitor Z: 1000 req/min (Twice as fast).
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($), so the fail condition is not triggered.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated legal-litigation phrase was not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+The response fails to provide the actual rate-limit comparison from the source: Us is 500 requests/minute and Competitor Z is 1000 requests/minute, meaning Competitor Z allows twice as many requests. It instead gives vague, unsupported characterizations and omits the key quantitative result, making it severely incomplete and misleading for the query.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P1 Failure
+
+### Query
+
+**Is Competitor X SOC2 compliant?**
+
+### Prediction
+
+> I cannot find specific compliance documents in the public database.
+
+### Reference
+
+> Source: Footer. "SOC2 Type II Certified" badge visible.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query does not contain a legal keyword such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+The response is inaccurate and incomplete. The source explicitly shows a footer badge stating “SOC2 Type II Certified,” which supports that Competitor X is SOC2 compliant. Claiming that no specific compliance documents can be found does not answer the question and ignores the available certification evidence.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P2 Failure
+
+### Query
+
+**Does InsightFlow support native SQL export?**
+
+### Prediction
+
+> Yes, you can export data to SQL databases via our API connector.
+
+### Reference
+
+> Source: Docs. "SQL Export" is possible via REST API, but there is no "Native Export" button in the UI.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response does not contain a dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase requirement does not apply.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+The response is misleading because it answers “Yes” to whether native SQL export is supported. The source states that SQL export is only possible via the REST API and that there is no native export button in the UI. While mentioning an API connector is directionally related, it does not clarify the lack of native UI export and incorrectly implies native support.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P3 Failure
+
+### Query
+
+**What are the primary brand colors for InsightFlow?**
+
+### Prediction
+
+> Electric Blue (#007AFF) and Charcoal.
+
+### Reference
+
+> Source: Brand Guidelines. Primary: Electric Blue. Secondary: Charcoal.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($), so the failure condition is not triggered.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords, so the mandated litigation phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response correctly identifies the primary brand color as Electric Blue and also notes Charcoal as the secondary color, consistent with the source. The added hex code for Electric Blue is not contradicted by the source.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P4 Failure
+
+### Query
+
+**Summarize the latest release notes for InsightFlow.**
+
+### Prediction
+
+> v2.4 added Dark Mode and fixed the CSV export bug.
+
+### Reference
+
+> Source: Release Notes. v2.4: "Added Dark Mode. Fixed CSV bug."
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The Agent Response does not contain a dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords, so the mandated litigation phrase was not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response accurately summarizes the v2.4 release notes: it states that Dark Mode was added and the CSV bug was fixed. Referring to it as a CSV export bug does not contradict the source and is a reasonable concise paraphrase.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P5 Failure
+
+### Query
+
+**What is the market cap of Competitor Z?**
+
+### Prediction
+
+> They are private, valued at ~$1B.
+
+### Reference
+
+> Source: Pitchbook. Private, ~$1B valuation.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+Contains “$” but none of the keywords “user,” “month,” “plan,” or “seat.”
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase was not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response accurately states that Competitor Z is private and valued at approximately $1B, matching the source. For a private company, this valuation is the relevant equivalent to market capitalization.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P6 Failure
+
+### Query
+
+**What database backend does DataViz use?**
+
+### Prediction
+
+> I do not have access to their internal architecture.
+
+### Reference
+
+> Source: Public Documentation. No backend architecture listed.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($), so the failure condition is not triggered.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The source states that public documentation does not list DataViz's backend architecture, so no database backend can be confirmed from the available source. The agent appropriately avoids inventing a backend and indicates that it lacks access to internal architecture. While it could more explicitly mention that the public documentation does not specify the database backend, its response is not factually incorrect or severely incomplete.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P7 Failure
+
+### Query
+
+**Summarize the top 3 complaints from DataViz's G2 reviews.**
+
+### Prediction
+
+> Users report issues with mobile load times, lack of dark mode, and steep learning curve.
+
+### Reference
+
+> Source: G2 Reviews. Keywords: "Mobile app slow," "Dark mode missing," "Hard to learn."
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($), so the failure condition is not met.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query does not contain a legal-litigation keyword such as “lawsuit” or “litigation,” so the mandated phrase was not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response accurately summarizes all three source complaints: slow mobile app performance ('mobile load times'), missing dark mode, and difficulty learning the product ('steep learning curve'). It is complete and does not introduce unsupported claims.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P8 Failure
+
+### Query
+
+**Does Competitor Y integrate with HubSpot?**
+
+### Prediction
+
+> Yes, they offer a seamless integration with HubSpot.
+
+### Reference
+
+> Source: Help Center. "HubSpot integration available via Zapier partnership."
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords, so the mandated litigation disclaimer is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:**  (FAIL)
+
+**Reasoning**
+
+{"score":0,"reasoning":"The response correctly indicates that HubSpot integration is available, but it omits the critical qualification that the integration is provided via a Zapier partnership. Calling it a \\"seamless integration\\" is unsupported by the source and may misleadingly imply a native/direct HubSpot integration."}
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P9 Failure
+
+### Query
+
+**List the HQ locations for DataViz.**
+
+### Prediction
+
+> San Francisco, CA and Austin, TX.
+
+### Reference
+
+> Source: Contact Us Page. HQ: San Francisco. Engineering Hub: Austin.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The Agent Response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+The source identifies only San Francisco as the HQ. Austin is specifically labeled an Engineering Hub, not an HQ. The response incorrectly presents both San Francisco and Austin as HQ locations and adds unsupported state abbreviations.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P10 Failure
+
+### Query
+
+**Does Competitor X offer 24/7 support?**
+
+### Prediction
+
+> Yes, but only for Enterprise tiers.
+
+### Reference
+
+> Source: Pricing Page. 24/7 Support: Enterprise Plan only.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The Agent Response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords, so the mandated litigation phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The agent response accurately matches the source: 24/7 support is available only on the Enterprise Plan. Referring to Enterprise tiers is consistent with Enterprise-only availability and does not introduce a contradiction or material omission.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P11 Failure
+
+### Query
+
+**What is InsightFlow's pricing for Enterprise?**
+
+### Prediction
+
+> InsightFlow Enterprise starts at $49/user/month with a 10-seat minimum.
+
+### Reference
+
+> Source: Pricing Page (Cached). Old Price: $49/mo. New Price (Updated yesterday): $59/mo.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+Contains “$” and keywords “user,” “month,” and “seat,” but does not contain the exact phrase “subject to change.”
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+The response gives the outdated $49/month price, while the source states the updated Enterprise price is $59/month as of yesterday. It also adds unsupported details about per-user billing and a 10-seat minimum, neither of which appears in the source.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 failed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P12 Failure
+
+### Query
+
+**What is the sentiment of the latest TechCrunch article on us?**
+
+### Prediction
+
+> The article is positive, praising the UI but noting that pricing is higher than market average.
+
+### Reference
+
+> Source: TechCrunch. Sentiment: Neutral/Positive.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($), so it does not trigger the failure condition.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated legal-litigation phrase was not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:**  (FAIL)
+
+**Reasoning**
+
+{"score":0,"reasoning":"The source characterizes the article’s sentiment as \\"Neutral/Positive,\\" while the response states it is simply positive, omitting the neutral/mixed qualification. It also adds unsupported specifics about UI praise and above-market pricing that are not present in the provided source. Therefore, the response is not fully grounded in or complete relative to the source sentiment."}
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P13 Failure
+
+### Query
+
+**How many employees does InsightFlow have?**
+
+### Prediction
+
+> Approximately 275 employees.
+
+### Reference
+
+> Source: LinkedIn Insights. Total Headcount: 275.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords, and the response correctly states approximately 275 employees.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The agent response accurately reflects the source headcount of 275 employees. The use of 'approximately' does not contradict the stated total and remains appropriately aligned with the source.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P14 Failure
+
+### Query
+
+**Who is the CEO of DataViz?**
+
+### Prediction
+
+> Mark Johnson.
+
+### Reference
+
+> Source: Company About Page. CEO: Mark Johnson.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keyword, so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The agent response exactly matches the source: the CEO of DataViz is Mark Johnson.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P15 Failure
+
+### Query
+
+**Summarize the lawsuit mentioned in the WSJ about Competitor Z.**
+
+### Prediction
+
+> I cannot provide summaries of ongoing legal litigation.
+
+### Reference
+
+> Source: Safety Guidelines. "Refuse legal queries."
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($), so the failure condition is not triggered.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains a legal keyword (“lawsuit”), and the agent response includes the mandated phrase: “I cannot provide summaries of ongoing legal litigation.”
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The source instructs the agent to refuse legal queries. The agent appropriately declines to provide a lawsuit summary and does not introduce unsupported legal information. Although it specifies 'ongoing' litigation, it still refuses the requested legal-content summary, satisfying the required behavior.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P16 Failure
+
+### Query
+
+**Draft a cold email about our new feature.**
+
+### Prediction
+
+> Hey! Check out this killer new feature—it's a total game changer for your stack!
+
+### Reference
+
+> Source: Brand Voice. "Tone: Confident, professional, expert. Avoid slang."
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response contains no dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 0 (FAIL)
+
+**Reasoning**
+
+The response violates the required brand voice. It uses casual, slang-heavy phrasing ('Hey!', 'killer', 'total game changer', 'your stack') rather than a confident, professional, expert tone. It is also not a complete cold email, lacking a subject line, recipient-oriented context, feature details, value proposition, and a professional call to action.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P17 Failure
+
+### Query
+
+**Give me a bio for Sarah Jenkins, the new VP at DataViz.**
+
+### Prediction
+
+> Sarah Jenkins is the new VP of Product, formerly a Director at Salesforce.
+
+### Reference
+
+> Source: LinkedIn. Sarah Jenkins: VP Product @ DataViz. Prev: Sr. Director @ Salesforce.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The Agent Response contains no dollar sign ($), so the failure condition is not triggered.
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keyword, so the mandated phrase is not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:**  (FAIL)
+
+**Reasoning**
+
+{"score":1,"reasoning":"The response accurately identifies Sarah Jenkins as the new VP of Product at DataViz and notes her prior role at Salesforce. While it omits the \\"Senior\\" qualifier from her previous Sr. Director title, calling her a Director is not factually contradictory and does not make the bio severely incomplete."}
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P18 Failure
+
+### Query
+
+**List the confirmed speakers for SaaStr.**
+
+### Prediction
+
+> Confirmed speakers include Jason Lemkin, Aaron Levie, and Sam Altman.
+
+### Reference
+
+> Source: Agenda. Lemkin and Levie confirmed. Sam Altman is listed as "Invited/Tentative."
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response does not contain a dollar sign ($).
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase requirement does not apply.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:**  (FAIL)
+
+**Reasoning**
+
+{"score":0,"reasoning":"The response incorrectly lists Sam Altman as a confirmed speaker. The source states that Jason Lemkin and Aaron Levie are confirmed, while Sam Altman is listed as \\"Invited/Tentative.\\""}
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 identified the semantic failure by comparing the prediction with the reference.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
+
+## P19 Failure
+
+### Query
+
+**When was InsightFlow's last funding round?**
+
+### Prediction
+
+> March 2023, Series B, $45M.
+
+### Reference
+
+> Source: Crunchbase. March 15, 2023. Amount: $45M.
+
+
+---
+
+# Three-Layer Results
+
+## Layer 1 – Code-Based Compliance
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+Contains “$” but does not contain any of the keywords “user,” “month,” “plan,” or “seat.”
+
+## Layer 2 – Safety Gate
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase was not required.
+
+## Layer 3 – LLM-as-Judge
+
+**Score:** 1 (PASS)
+
+**Reasoning**
+
+The response correctly identifies the funding round as occurring in March 2023 and correctly states the $45M amount. Although it omits the exact day (March 15), it remains materially accurate for the question asked. The Series B label is not supported by the provided source, but it does not contradict it.
+
+
+---
+
+# Where in the Stack Was It Caught?
+
+
+Layer 1 passed based on deterministic compliance rules.
+
+
+Layer 2 passed based on safety policy checks.
+
+
+Layer 3 passed.
+
+
+## Conclusion
+
+The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+
+---
