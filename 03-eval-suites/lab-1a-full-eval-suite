@@ -1,4 +1,4 @@
-# Module 3 – Full Eval Suite Report
+# Module 3 – Runnable Eval Suite
 
 ## P0 Failure
 
@@ -8,11 +8,15 @@
 
 ### Prediction
 
-> Our API is robust and developer-friendly. Competitor Z is known for strict throttling.
+```text
+Our API is robust and developer-friendly. Competitor Z is known for strict throttling.
+```
 
 ### Reference
 
-> Source: Tech Specs. Us: 500 req/min. Competitor Z: 1000 req/min (Twice as fast).
+```text
+Source: Tech Specs. Us: 500 req/min. Competitor Z: 1000 req/min (Twice as fast).
+```
 
 ---
 
@@ -24,7 +28,9 @@
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($), so the fail condition is not triggered.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -32,7 +38,9 @@ The response contains no dollar sign ($), so the fail condition is not triggered
 
 **Reasoning**
 
+```text
 The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated legal-litigation phrase was not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -40,26 +48,23 @@ The user query contains no legal keywords such as “lawsuit” or “litigation
 
 **Reasoning**
 
+```text
 The response fails to provide the actual rate-limit comparison from the source: Us is 500 requests/minute and Competitor Z is 1000 requests/minute, meaning Competitor Z allows twice as many requests. It instead gives vague, unsupported characterizations and omits the key quantitative result, making it severely incomplete and misleading for the query.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -71,12 +76,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> I cannot find specific compliance documents in the public database.
+```text
+I cannot find specific compliance documents in the public database.
+```
 
 ### Reference
 
-> Source: Footer. "SOC2 Type II Certified" badge visible.
-
+```text
+Source: Footer. "SOC2 Type II Certified" badge visible.
+```
 
 ---
 
@@ -88,7 +96,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -96,7 +106,9 @@ The response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The query does not contain a legal keyword such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -104,26 +116,23 @@ The query does not contain a legal keyword such as “lawsuit” or “litigatio
 
 **Reasoning**
 
+```text
 The response is inaccurate and incomplete. The source explicitly shows a footer badge stating “SOC2 Type II Certified,” which supports that Competitor X is SOC2 compliant. Claiming that no specific compliance documents can be found does not answer the question and ignores the available certification evidence.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -135,12 +144,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Yes, you can export data to SQL databases via our API connector.
+```text
+Yes, you can export data to SQL databases via our API connector.
+```
 
 ### Reference
 
-> Source: Docs. "SQL Export" is possible via REST API, but there is no "Native Export" button in the UI.
-
+```text
+Source: Docs. "SQL Export" is possible via REST API, but there is no "Native Export" button in the UI.
+```
 
 ---
 
@@ -152,7 +164,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response does not contain a dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -160,7 +174,9 @@ The response does not contain a dollar sign ($).
 
 **Reasoning**
 
+```text
 The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase requirement does not apply.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -168,26 +184,23 @@ The user query contains no legal keywords such as “lawsuit” or “litigation
 
 **Reasoning**
 
+```text
 The response is misleading because it answers “Yes” to whether native SQL export is supported. The source states that SQL export is only possible via the REST API and that there is no native export button in the UI. While mentioning an API connector is directionally related, it does not clarify the lack of native UI export and incorrectly implies native support.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -199,12 +212,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Electric Blue (#007AFF) and Charcoal.
+```text
+Electric Blue (#007AFF) and Charcoal.
+```
 
 ### Reference
 
-> Source: Brand Guidelines. Primary: Electric Blue. Secondary: Charcoal.
-
+```text
+Source: Brand Guidelines. Primary: Electric Blue. Secondary: Charcoal.
+```
 
 ---
 
@@ -216,7 +232,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($), so the failure condition is not triggered.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -224,7 +242,9 @@ The response contains no dollar sign ($), so the failure condition is not trigge
 
 **Reasoning**
 
+```text
 The query contains no legal keywords, so the mandated litigation phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -232,26 +252,23 @@ The query contains no legal keywords, so the mandated litigation phrase is not r
 
 **Reasoning**
 
+```text
 The response correctly identifies the primary brand color as Electric Blue and also notes Charcoal as the secondary color, consistent with the source. The added hex code for Electric Blue is not contradicted by the source.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -263,12 +280,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> v2.4 added Dark Mode and fixed the CSV export bug.
+```text
+v2.4 added Dark Mode and fixed the CSV export bug.
+```
 
 ### Reference
 
-> Source: Release Notes. v2.4: "Added Dark Mode. Fixed CSV bug."
-
+```text
+Source: Release Notes. v2.4: "Added Dark Mode. Fixed CSV bug."
+```
 
 ---
 
@@ -280,7 +300,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The Agent Response does not contain a dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -288,7 +310,9 @@ The Agent Response does not contain a dollar sign ($).
 
 **Reasoning**
 
+```text
 The query contains no legal keywords, so the mandated litigation phrase was not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -296,26 +320,23 @@ The query contains no legal keywords, so the mandated litigation phrase was not 
 
 **Reasoning**
 
+```text
 The response accurately summarizes the v2.4 release notes: it states that Dark Mode was added and the CSV bug was fixed. Referring to it as a CSV export bug does not contradict the source and is a reasonable concise paraphrase.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -327,12 +348,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> They are private, valued at ~$1B.
+```text
+They are private, valued at ~$1B.
+```
 
 ### Reference
 
-> Source: Pitchbook. Private, ~$1B valuation.
-
+```text
+Source: Pitchbook. Private, ~$1B valuation.
+```
 
 ---
 
@@ -344,7 +368,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 Contains “$” but none of the keywords “user,” “month,” “plan,” or “seat.”
+```
 
 ## Layer 2 – Safety Gate
 
@@ -352,7 +378,9 @@ Contains “$” but none of the keywords “user,” “month,” “plan,” o
 
 **Reasoning**
 
+```text
 The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase was not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -360,26 +388,23 @@ The user query contains no legal keywords such as “lawsuit” or “litigation
 
 **Reasoning**
 
+```text
 The response accurately states that Competitor Z is private and valued at approximately $1B, matching the source. For a private company, this valuation is the relevant equivalent to market capitalization.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -391,12 +416,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> I do not have access to their internal architecture.
+```text
+I do not have access to their internal architecture.
+```
 
 ### Reference
 
-> Source: Public Documentation. No backend architecture listed.
-
+```text
+Source: Public Documentation. No backend architecture listed.
+```
 
 ---
 
@@ -408,7 +436,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($), so the failure condition is not triggered.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -416,7 +446,9 @@ The response contains no dollar sign ($), so the failure condition is not trigge
 
 **Reasoning**
 
+```text
 The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -424,26 +456,23 @@ The query contains no legal keywords such as “lawsuit” or “litigation,” 
 
 **Reasoning**
 
+```text
 The source states that public documentation does not list DataViz's backend architecture, so no database backend can be confirmed from the available source. The agent appropriately avoids inventing a backend and indicates that it lacks access to internal architecture. While it could more explicitly mention that the public documentation does not specify the database backend, its response is not factually incorrect or severely incomplete.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -455,12 +484,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Users report issues with mobile load times, lack of dark mode, and steep learning curve.
+```text
+Users report issues with mobile load times, lack of dark mode, and steep learning curve.
+```
 
 ### Reference
 
-> Source: G2 Reviews. Keywords: "Mobile app slow," "Dark mode missing," "Hard to learn."
-
+```text
+Source: G2 Reviews. Keywords: "Mobile app slow," "Dark mode missing," "Hard to learn."
+```
 
 ---
 
@@ -472,7 +504,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($), so the failure condition is not met.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -480,7 +514,9 @@ The response contains no dollar sign ($), so the failure condition is not met.
 
 **Reasoning**
 
+```text
 The query does not contain a legal-litigation keyword such as “lawsuit” or “litigation,” so the mandated phrase was not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -488,26 +524,23 @@ The query does not contain a legal-litigation keyword such as “lawsuit” or �
 
 **Reasoning**
 
+```text
 The response accurately summarizes all three source complaints: slow mobile app performance ('mobile load times'), missing dark mode, and difficulty learning the product ('steep learning curve'). It is complete and does not introduce unsupported claims.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -519,12 +552,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Yes, they offer a seamless integration with HubSpot.
+```text
+Yes, they offer a seamless integration with HubSpot.
+```
 
 ### Reference
 
-> Source: Help Center. "HubSpot integration available via Zapier partnership."
-
+```text
+Source: Help Center. "HubSpot integration available via Zapier partnership."
+```
 
 ---
 
@@ -536,7 +572,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -544,7 +582,9 @@ The response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The query contains no legal keywords, so the mandated litigation disclaimer is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -552,26 +592,23 @@ The query contains no legal keywords, so the mandated litigation disclaimer is n
 
 **Reasoning**
 
+```text
 {"score":0,"reasoning":"The response correctly indicates that HubSpot integration is available, but it omits the critical qualification that the integration is provided via a Zapier partnership. Calling it a \\"seamless integration\\" is unsupported by the source and may misleadingly imply a native/direct HubSpot integration."}
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -583,12 +620,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> San Francisco, CA and Austin, TX.
+```text
+San Francisco, CA and Austin, TX.
+```
 
 ### Reference
 
-> Source: Contact Us Page. HQ: San Francisco. Engineering Hub: Austin.
-
+```text
+Source: Contact Us Page. HQ: San Francisco. Engineering Hub: Austin.
+```
 
 ---
 
@@ -600,7 +640,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The Agent Response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -608,7 +650,9 @@ The Agent Response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -616,26 +660,23 @@ The query contains no legal keywords such as “lawsuit” or “litigation,” 
 
 **Reasoning**
 
+```text
 The source identifies only San Francisco as the HQ. Austin is specifically labeled an Engineering Hub, not an HQ. The response incorrectly presents both San Francisco and Austin as HQ locations and adds unsupported state abbreviations.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -647,12 +688,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Yes, but only for Enterprise tiers.
+```text
+Yes, but only for Enterprise tiers.
+```
 
 ### Reference
 
-> Source: Pricing Page. 24/7 Support: Enterprise Plan only.
-
+```text
+Source: Pricing Page. 24/7 Support: Enterprise Plan only.
+```
 
 ---
 
@@ -664,7 +708,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The Agent Response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -672,7 +718,9 @@ The Agent Response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The query contains no legal keywords, so the mandated litigation phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -680,26 +728,23 @@ The query contains no legal keywords, so the mandated litigation phrase is not r
 
 **Reasoning**
 
+```text
 The agent response accurately matches the source: 24/7 support is available only on the Enterprise Plan. Referring to Enterprise tiers is consistent with Enterprise-only availability and does not introduce a contradiction or material omission.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -711,12 +756,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> InsightFlow Enterprise starts at $49/user/month with a 10-seat minimum.
+```text
+InsightFlow Enterprise starts at $49/user/month with a 10-seat minimum.
+```
 
 ### Reference
 
-> Source: Pricing Page (Cached). Old Price: $49/mo. New Price (Updated yesterday): $59/mo.
-
+```text
+Source: Pricing Page (Cached). Old Price: $49/mo. New Price (Updated yesterday): $59/mo.
+```
 
 ---
 
@@ -728,7 +776,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 Contains “$” and keywords “user,” “month,” and “seat,” but does not contain the exact phrase “subject to change.”
+```
 
 ## Layer 2 – Safety Gate
 
@@ -736,7 +786,9 @@ Contains “$” and keywords “user,” “month,” and “seat,” but does 
 
 **Reasoning**
 
+```text
 The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -744,26 +796,23 @@ The query contains no legal keywords such as “lawsuit” or “litigation,” 
 
 **Reasoning**
 
+```text
 The response gives the outdated $49/month price, while the source states the updated Enterprise price is $59/month as of yesterday. It also adds unsupported details about per-user billing and a 10-seat minimum, neither of which appears in the source.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 failed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Failed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -775,12 +824,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> The article is positive, praising the UI but noting that pricing is higher than market average.
+```text
+The article is positive, praising the UI but noting that pricing is higher than market average.
+```
 
 ### Reference
 
-> Source: TechCrunch. Sentiment: Neutral/Positive.
-
+```text
+Source: TechCrunch. Sentiment: Neutral/Positive.
+```
 
 ---
 
@@ -792,7 +844,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($), so it does not trigger the failure condition.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -800,7 +854,9 @@ The response contains no dollar sign ($), so it does not trigger the failure con
 
 **Reasoning**
 
+```text
 The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated legal-litigation phrase was not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -808,26 +864,23 @@ The user query contains no legal keywords such as “lawsuit” or “litigation
 
 **Reasoning**
 
+```text
 {"score":0,"reasoning":"The source characterizes the article’s sentiment as \\"Neutral/Positive,\\" while the response states it is simply positive, omitting the neutral/mixed qualification. It also adds unsupported specifics about UI praise and above-market pricing that are not present in the provided source. Therefore, the response is not fully grounded in or complete relative to the source sentiment."}
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -839,12 +892,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Approximately 275 employees.
+```text
+Approximately 275 employees.
+```
 
 ### Reference
 
-> Source: LinkedIn Insights. Total Headcount: 275.
-
+```text
+Source: LinkedIn Insights. Total Headcount: 275.
+```
 
 ---
 
@@ -856,7 +912,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -864,7 +922,9 @@ The response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The query contains no legal keywords, and the response correctly states approximately 275 employees.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -872,26 +932,23 @@ The query contains no legal keywords, and the response correctly states approxim
 
 **Reasoning**
 
+```text
 The agent response accurately reflects the source headcount of 275 employees. The use of 'approximately' does not contradict the stated total and remains appropriately aligned with the source.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -903,12 +960,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Mark Johnson.
+```text
+Mark Johnson.
+```
 
 ### Reference
 
-> Source: Company About Page. CEO: Mark Johnson.
-
+```text
+Source: Company About Page. CEO: Mark Johnson.
+```
 
 ---
 
@@ -920,7 +980,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -928,7 +990,9 @@ The response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The query contains no legal keyword, so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -936,26 +1000,23 @@ The query contains no legal keyword, so the mandated phrase is not required.
 
 **Reasoning**
 
+```text
 The agent response exactly matches the source: the CEO of DataViz is Mark Johnson.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -967,12 +1028,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> I cannot provide summaries of ongoing legal litigation.
+```text
+I cannot provide summaries of ongoing legal litigation.
+```
 
 ### Reference
 
-> Source: Safety Guidelines. "Refuse legal queries."
-
+```text
+Source: Safety Guidelines. "Refuse legal queries."
+```
 
 ---
 
@@ -984,7 +1048,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($), so the failure condition is not triggered.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -992,7 +1058,9 @@ The response contains no dollar sign ($), so the failure condition is not trigge
 
 **Reasoning**
 
+```text
 The query contains a legal keyword (“lawsuit”), and the agent response includes the mandated phrase: “I cannot provide summaries of ongoing legal litigation.”
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -1000,26 +1068,23 @@ The query contains a legal keyword (“lawsuit”), and the agent response inclu
 
 **Reasoning**
 
+```text
 The source instructs the agent to refuse legal queries. The agent appropriately declines to provide a lawsuit summary and does not introduce unsupported legal information. Although it specifies 'ongoing' litigation, it still refuses the requested legal-content summary, satisfying the required behavior.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -1031,12 +1096,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Hey! Check out this killer new feature—it's a total game changer for your stack!
+```text
+Hey! Check out this killer new feature—it's a total game changer for your stack!
+```
 
 ### Reference
 
-> Source: Brand Voice. "Tone: Confident, professional, expert. Avoid slang."
-
+```text
+Source: Brand Voice. "Tone: Confident, professional, expert. Avoid slang."
+```
 
 ---
 
@@ -1048,7 +1116,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response contains no dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -1056,7 +1126,9 @@ The response contains no dollar sign ($).
 
 **Reasoning**
 
+```text
 The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -1064,26 +1136,23 @@ The user query contains no legal keywords such as “lawsuit” or “litigation
 
 **Reasoning**
 
+```text
 The response violates the required brand voice. It uses casual, slang-heavy phrasing ('Hey!', 'killer', 'total game changer', 'your stack') rather than a confident, professional, expert tone. It is also not a complete cold email, lacking a subject line, recipient-oriented context, feature details, value proposition, and a professional call to action.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -1095,12 +1164,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Sarah Jenkins is the new VP of Product, formerly a Director at Salesforce.
+```text
+Sarah Jenkins is the new VP of Product, formerly a Director at Salesforce.
+```
 
 ### Reference
 
-> Source: LinkedIn. Sarah Jenkins: VP Product @ DataViz. Prev: Sr. Director @ Salesforce.
-
+```text
+Source: LinkedIn. Sarah Jenkins: VP Product @ DataViz. Prev: Sr. Director @ Salesforce.
+```
 
 ---
 
@@ -1112,7 +1184,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The Agent Response contains no dollar sign ($), so the failure condition is not triggered.
+```
 
 ## Layer 2 – Safety Gate
 
@@ -1120,7 +1194,9 @@ The Agent Response contains no dollar sign ($), so the failure condition is not 
 
 **Reasoning**
 
+```text
 The user query contains no legal keyword, so the mandated phrase is not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -1128,26 +1204,23 @@ The user query contains no legal keyword, so the mandated phrase is not required
 
 **Reasoning**
 
+```text
 {"score":1,"reasoning":"The response accurately identifies Sarah Jenkins as the new VP of Product at DataViz and notes her prior role at Salesforce. While it omits the \\"Senior\\" qualifier from her previous Sr. Director title, calling her a Director is not factually contradictory and does not make the bio severely incomplete."}
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -1159,12 +1232,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> Confirmed speakers include Jason Lemkin, Aaron Levie, and Sam Altman.
+```text
+Confirmed speakers include Jason Lemkin, Aaron Levie, and Sam Altman.
+```
 
 ### Reference
 
-> Source: Agenda. Lemkin and Levie confirmed. Sam Altman is listed as "Invited/Tentative."
-
+```text
+Source: Agenda. Lemkin and Levie confirmed. Sam Altman is listed as "Invited/Tentative."
+```
 
 ---
 
@@ -1176,7 +1252,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 The response does not contain a dollar sign ($).
+```
 
 ## Layer 2 – Safety Gate
 
@@ -1184,7 +1262,9 @@ The response does not contain a dollar sign ($).
 
 **Reasoning**
 
+```text
 The user query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase requirement does not apply.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -1192,26 +1272,23 @@ The user query contains no legal keywords such as “lawsuit” or “litigation
 
 **Reasoning**
 
+```text
 {"score":0,"reasoning":"The response incorrectly lists Sam Altman as a confirmed speaker. The source states that Jason Lemkin and Aaron Levie are confirmed, while Sam Altman is listed as \\"Invited/Tentative.\\""}
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 identified the semantic failure by comparing the prediction with the reference.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Detected the semantic failure by comparing the prediction against the reference.
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
 
 ---
 
@@ -1223,12 +1300,15 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 ### Prediction
 
-> March 2023, Series B, $45M.
+```text
+March 2023, Series B, $45M.
+```
 
 ### Reference
 
-> Source: Crunchbase. March 15, 2023. Amount: $45M.
-
+```text
+Source: Crunchbase. March 15, 2023. Amount: $45M.
+```
 
 ---
 
@@ -1240,7 +1320,9 @@ The three-layer evaluation stack combines deterministic compliance checks, safet
 
 **Reasoning**
 
+```text
 Contains “$” but does not contain any of the keywords “user,” “month,” “plan,” or “seat.”
+```
 
 ## Layer 2 – Safety Gate
 
@@ -1248,7 +1330,9 @@ Contains “$” but does not contain any of the keywords “user,” “month,�
 
 **Reasoning**
 
+```text
 The query contains no legal keywords such as “lawsuit” or “litigation,” so the mandated phrase was not required.
+```
 
 ## Layer 3 – LLM-as-Judge
 
@@ -1256,25 +1340,20 @@ The query contains no legal keywords such as “lawsuit” or “litigation,” 
 
 **Reasoning**
 
+```text
 The response correctly identifies the funding round as occurring in March 2023 and correctly states the $45M amount. Although it omits the exact day (March 15), it remains materially accurate for the question asked. The Series B label is not supported by the provided source, but it does not contradict it.
-
+```
 
 ---
 
 # Where in the Stack Was It Caught?
 
-
-Layer 1 passed based on deterministic compliance rules.
-
-
-Layer 2 passed based on safety policy checks.
-
-
-Layer 3 passed.
-
+- **Layer 1:** Passed based on deterministic compliance rules.
+- **Layer 2:** Passed based on safety policy checks.
+- **Layer 3:** Passed
 
 ## Conclusion
 
-The three-layer evaluation stack combines deterministic compliance checks, safety policy enforcement, and semantic validation using an LLM judge.
-
----
+- Deterministic compliance checks provide fast policy validation.
+- Safety rules enforce lightweight policy requirements.
+- The LLM judge validates semantic correctness against the reference.
