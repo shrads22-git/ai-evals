@@ -1,7 +1,5 @@
 # Module 4 · Eval Gate Map · Ascend IQ Copilot
 
-_Generated from the M4 Eval Gate Mapping Tool._
-
 ## Context
 
 Eng flagged 5 verified failures in the Ascend IQ data log. (Row 14, refused legal query, was correctly Pass and is not mapped.) Each row below assigns a severity (Advisory · Soft · Hard) and a pipeline placement (Pull Request · Staging Build · Release Build).
