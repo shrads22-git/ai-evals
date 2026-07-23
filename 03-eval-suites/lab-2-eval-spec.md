@@ -169,9 +169,3 @@ This evaluation gate:
 - [x] UX defines a graceful fallback without exposing internal errors.
 - [x] Leadership update emphasizes business value rather than implementation details.
 - [x] Ownership and accountability are clearly assigned.
-
----
-
-_Save this as `03-eval-suites/lab-2-eval-spec.md` in your repository._
-
-_Generated for the AI Evals Certification · Module 3 Lab 2_
