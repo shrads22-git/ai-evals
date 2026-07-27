@@ -34,7 +34,11 @@ Module 3 : 03-eval-suites/
 ├── lab-1a-eval-suite.md
 ├── lab-1b-trajectory.md
 ├── lab-2-eval-spec.md
-└── lab-judge-calibration.md/
+└── lab-judge-calibration.md
+
+Module 4 : 04-eval-gates/
+├── lab-1-gate-map.md
+└── lab-2-launch-strategy.md
 
 Agents *(work in progress)*
 ├── calculator_agent.py
@@ -117,6 +121,45 @@ Topics covered:
 
 ---
 
+### Module 4 - Ship Safely with Eval Gates
+
+This module focuses on translating evaluation risks into enforceable CI/CD gates and measurable PRD release criteria.
+
+It includes:
+
+#### Eval Gate Mapping
+
+* Classified verified failures as Hard, Soft, or Advisory gates
+* Connected each failure to revenue, legal, brand, or customer-experience risk
+* Selected the appropriate pipeline placement: PR, Staging, or Release
+* Excluded correct safety behavior from gating to prevent false failures and alert fatigue
+
+#### Launch Strategy and Release Criteria
+
+Defined measurable launch requirements for Ascend IQ:
+
+| Gate     | Risk                        | Metric                      | Threshold     | Enforcement                           |
+| -------- | --------------------------- | --------------------------- | ------------- | ------------------------------------- |
+| Hard     | Stale pricing hallucination | Pricing Hallucination Rate  | = 0%          | Blocks release                        |
+| Soft     | Response latency            | P95 Response Latency        | ≤ 2.0 seconds | Requires mitigation before proceeding |
+| Advisory | Off-brand tone              | Brand-Voice Compliance Rate | ≥ 95%         | Warns without blocking                |
+
+The CI policy distinguishes between absolute blockers, conditional approvals, and monitoring signals:
+
+* Pricing hallucinations block the build with no exception
+* Latency failures require an approved Staged Rollout mitigation
+* Tone failures generate warnings for future prompt and rubric improvements
+
+#### Mitigation Planning
+
+Selected a **Staged Rollout** for latency failures. If P95 latency exceeds 2.0 seconds in two consecutive performance tests, availability is limited to a controlled user group while Engineering investigates performance bottlenecks.
+
+**Key takeaway**
+
+> Eval gates convert evaluation results into enforceable launch decisions: Hard Gates block unacceptable risk, Soft Gates require mitigation, and Advisory Gates provide monitoring signals without stopping delivery.
+
+---
+
 ### AI Agent Development *(Self Learning)*
 
 Beyond the course, I am exploring modern AI agent architectures using **LangChain**, **LangGraph**, and **LangSmith**.
@@ -178,13 +221,19 @@ Future work will extend this agent with multiple tools, allowing evaluation of:
 - AI Agent Development
 - Tool Calling
 - Trajectory Evaluation
-- LangChain
-- LangGraph
 - Trust Metrics
 - Latency Analysis
 - Quality Metrics
+- Eval Gate Design
+- Risk-Based Release Criteria
+- CI/CD Quality Gates
+- Pipeline Gate Placement
+- PRD Metric and Threshold Definition
+- Mitigation and Staged Rollout Planning
 - Git & GitHub
 - Markdown Documentation
+- LangChain
+- LangGraph
 
 > **Note:** Current evaluations use OpenAI as both the model provider and the LLM-as-Judge. Future work will explore independent judge models, multi-model evaluation, and production-style agent evaluation to reduce evaluator bias.
 
@@ -206,5 +255,6 @@ Future work will extend this agent with multiple tools, allowing evaluation of:
 - ✅ Module 1 – Evaluation Strategy
 - ✅ Module 2 – Failure Discovery
 - ✅ Module 3 – Evaluation Design & Judge Calibration
+- ✅ Module 4 – Ship Safely with Eval Gates
 
-More projects will be added as I continue building production-style AI evaluation systems.
+More projects will be added as I continue building production-style AI evaluation systems and agent evaluation frameworks.
