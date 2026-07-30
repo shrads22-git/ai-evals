@@ -296,8 +296,6 @@ Created a shareable HTML presentation that communicates:
 
 ## Status
 
-## Status
-
 - ✅ Module 1 – Evaluation Strategy
 - ✅ Module 2 – Failure Discovery
 - ✅ Module 3 – Evaluation Design & Judge Calibration
