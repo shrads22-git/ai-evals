@@ -55,7 +55,3 @@ Screenshots: https://github.com/shrads22-git/ai-evals/blob/main/01-evaluation-st
 ### Reflection
 - **One realization:** Defining “good enough” forced me to distinguish between creating evaluation gates and proving that a model candidate passes them. A documented threshold does not provide launch confidence unless the candidate meets it and the evaluator enforcing it is also calibrated and trustworthy.
 - **Next sprint:** My first priority would be closing the evaluator-reliability gap by refining the grounding rubric, recalibrating the LLM judge from κ = -0.29 to at least 0.60, and rerunning all 20 pricing golden-set cases. I would then implement the planned 500-signal drift dataset before reconsidering broader rollout.
-
----
-
-Submitted to AI Evals Certification LMS · Product School.
