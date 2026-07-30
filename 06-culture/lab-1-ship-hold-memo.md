@@ -44,4 +44,4 @@ Approve the launch hold by EOD Friday, July 31, 2026. Engineering and the AI Eva
 
 ## Reflection
 
-_Defining “good enough” forced me to distinguish between having an evaluation framework and having evidence that the product actually passes it. The team had created measurable gates, but the capstone showed that a documented threshold alone does not create launch confidence the model candidate must pass the gate, and the evaluator enforcing it must also be calibrated and trustworthy._
+Defining “good enough” forced me to distinguish between having an evaluation framework and having evidence that the product actually passes it. The team had created measurable gates, but the capstone showed that a documented threshold alone does not create launch confidence the model candidate must pass the gate, and the evaluator enforcing it must also be calibrated and trustworthy.
