@@ -17,33 +17,39 @@ Through these projects I am learning how to:
 ## Repository Structure
 
 ```
-Module 1 : 01-evaluation-strategy/
+Module 1: 01-evaluation-strategy/
 ├── strategy-canvas.md
 ├── starter-email-dataset.md
-├── sample-email.md *(self learning)*
+├── sample-email.md
 ├── eval-harness-proof.md
-├── operationalize-good.md *(self learning)*
+├── operationalize-good.md
 └── screenshots/
 
-Module 2 : 02-failure-discovery/
+Module 2: 02-failure-discovery/
 ├── audit-log.md
 ├── failure-taxonomy-canvas.md
 └── latency-log.md
 
-Module 3 : 03-eval-suites/
+Module 3: 03-eval-suites/
 ├── lab-1a-eval-suite.md
 ├── lab-1b-trajectory.md
 ├── lab-2-eval-spec.md
 └── lab-judge-calibration.md
 
-Module 4 : 04-eval-gates/
+Module 4: 04-eval-gates/
+├── datasets/
+│   └── ascend-iq-pricing-golden-v1.csv
 ├── lab-1-gate-map.md
-└── lab-2-launch-strategy.md
+├── lab-2-launch-strategy.md
+└── lab-3-extra-practice-formal-eval-threshold.md
 
-Agents *(work in progress)*
-├── calculator_agent.py
-├── research_agent.py *(coming soon)*
-└── trajectory-evaluation *(coming soon)*
+Module 5: 05-scale/
+├── lab-1-coverage-matrix.md
+└── lab-2-budget-crisis.md
+
+Module 6: 06-culture/
+├── lab-1-ship-hold-memo.md
+└── lab-2-final-pitch.html
 ```
 ---
 
@@ -160,51 +166,81 @@ Selected a **Staged Rollout** for latency failures. If P95 latency exceeds 2.0 s
 
 ---
 
-### AI Agent Development *(Self Learning)*
+### Module 5 – Scaling Evaluation Coverage
 
-Beyond the course, I am exploring modern AI agent architectures using **LangChain**, **LangGraph**, and **LangSmith**.
+This module focuses on scaling evaluation across multiple trust risks while making explicit coverage and budget trade-offs.
 
-Current work includes:
+It includes:
 
-#### Calculator Agent
+#### Coverage Matrix
 
-Built a simple AI agent capable of:
+- Mapped coverage across hallucination, bias, latency, toxicity, and drift monitoring
+- Defined evaluation methods and ground truth for covered risks
+- Accepted the temporary toxicity-coverage gap for an internal product with trained users and human oversight
+- Identified missing drift monitoring as the most critical coverage gap
+- Proposed a weekly drift-evaluation suite using a versioned gold dataset of at least 500 competitive signals
 
-- Selecting the appropriate tool based on the user's request
-- Executing arithmetic through a deterministic calculator tool
-- Producing observable execution traces in LangSmith
+#### Evaluation Budget Allocation
 
-This project introduced key agent concepts including:
+Allocated a `$200,000` quarterly evaluation budget across five failure categories:
 
-- Tool Calling
-- Function Calling
-- Agent Planning
-- Execution Traces
-- LangSmith Observability
+| Evaluation | Level | Cost |
+| --- | :---: | ---: |
+| Data Fabrication / Hallucination | L3 | $85,000 |
+| Source Attribution Failure | L3 | $65,000 |
+| Cost Overruns / Latency | L3 | $25,000 |
+| Context Specificity | L2 | $7,000 |
+| Data Bias | L2 | $5,500 |
 
-The resulting execution trajectory follows:
+- Total L3 investment: `$175,000`
+- Total portfolio investment: `$187,500`
+- Remaining budget: `$12,500`
 
-```
-User Question
-      ↓
-LLM decides to use Calculator
-      ↓
-Calculator Tool executes
-      ↓
-LLM generates final response
-```
+**Key takeaway**
 
-This serves as the foundation for understanding **trajectory evaluation**, where the quality of an AI system is measured not only by its final answer but also by the sequence of decisions it makes while solving a task.
+> Scaling evaluation requires prioritizing the highest-impact risks, accepting lower-cost coverage where defensible, and making critical monitoring gaps visible rather than claiming complete coverage.
 
-Future work will extend this agent with multiple tools, allowing evaluation of:
+### Module 6 – Ship/Hold Decision and Final Pitch
 
-- Tool Selection
-- Tool Usage
-- Planning
-- Grounding
-- Recovery
-- Efficiency
+This capstone combines the strategy, failure analysis, evaluation results, release gates, coverage decisions, and budget allocation from Modules 1–5 into an executive launch recommendation for Ascend IQ.
 
+#### Ship/Hold Memo
+
+Applied the Pyramid Principle to create an executive-ready decision memo that:
+
+- Leads with a clear **HOLD** recommendation
+- Organizes the reasoning around customer trust, release readiness, and operational control
+- Compares evaluation results against explicit release gates
+- Distinguishes between defined evaluation controls and demonstrated passing evidence
+- Ends with a specific remediation plan and decision deadline
+
+The launch was held because:
+
+- A verified unsupported enterprise-pricing response violated the zero-tolerance pricing gate
+- Pricing groundedness and citation coverage were not demonstrated across the complete golden set
+- Judge calibration achieved Cohen’s κ = `-0.29`, below the required `≥ 0.60`
+- The trajectory evaluation passed only `1 of 6` dimensions
+- A verified latency case took `4.2 seconds` against the `≤ 2.0-second` gate
+- Drift monitoring had not yet been implemented
+
+#### Final Executive Pitch
+
+Created a shareable HTML presentation that communicates:
+
+- The Ascend IQ user promise and evaluation strategy
+- The primary failure taxonomy and business impact
+- Evaluation-suite and judge-calibration results
+- Hard, Soft, and Advisory release gates
+- Portfolio-level coverage and budget decisions
+- The final evidence-based HOLD recommendation
+- Required remediation before the next ship review
+
+- [Read the Ship/Hold Memo](06-culture/lab-1-ship-hold-memo.md)
+- [Open the Final Pitch Deck](06-culture/lab-2-final-pitch.html)
+
+**Key takeaway**
+
+> A release threshold is not evidence that a product is ready. The model candidate must pass the gate, and the evaluator enforcing that gate must also be reliable and calibrated.
 ---
 
 ## Skills Practiced
@@ -234,6 +270,14 @@ Future work will extend this agent with multiple tools, allowing evaluation of:
 - Markdown Documentation
 - LangChain
 - LangGraph
+- Evaluation Coverage Strategy
+- Evaluation Portfolio Prioritization
+- Evaluation Budget Allocation
+- Drift Monitoring Design
+- Executive Ship/Hold Decision-Making
+- Pyramid Principle Communication
+- Evidence-Based Launch Recommendations
+- Executive AI Evaluation Storytelling
 
 > **Note:** Current evaluations use OpenAI as both the model provider and the LLM-as-Judge. Future work will explore independent judge models, multi-model evaluation, and production-style agent evaluation to reduce evaluator bias.
 
@@ -252,9 +296,13 @@ Future work will extend this agent with multiple tools, allowing evaluation of:
 
 ## Status
 
+## Status
+
 - ✅ Module 1 – Evaluation Strategy
 - ✅ Module 2 – Failure Discovery
 - ✅ Module 3 – Evaluation Design & Judge Calibration
 - ✅ Module 4 – Ship Safely with Eval Gates
+- ✅ Module 5 – Scale Evaluation Coverage
+- ✅ Module 6 – Ship/Hold Memo and Final Pitch
 
-More projects will be added as I continue building production-style AI evaluation systems and agent evaluation frameworks.
+The six-module capstone demonstrates an end-to-end AI evaluation lifecycle: strategy, failure discovery, evaluation design, release gating, portfolio scaling, and evidence-based launch decision-making.
